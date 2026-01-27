@@ -1,9 +1,9 @@
 <?php
 // Connexion à la base de données MySQL
-$host = 'db';  // Nom du service dans docker-compose.yml
-$db = 'myapp_db';
-$user = 'user';
-$pass = 'password';
+$host = 'localhost:3306';  // Nom du service dans docker-compose.yml
+$db = 'maint-applic-td1';
+$user = 'root';
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -52,6 +52,14 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["submit"])) {
     <title>Document</title>
 </head>
 <body>
+
+<h2>Édité par</h2>
+    <ul>
+        <li>MICALLEF John</li>
+        <li>AHOUANDOGBO Amen</li>
+        <li>SCHEER Corentin</li>
+    </ul>
+    <br />
 
 <?php if ($champAleatoire): ?>
     <h2>Champ sélectionné : <?= $champAleatoire ?></h2>
@@ -102,6 +110,14 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["submit"])) {
 
     <input type="submit" name="submit" value="Envoyer">
 </form>
-
+<style>
+        body {
+            color: white;
+            background-image: url('img/faker.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </body>
 </html>

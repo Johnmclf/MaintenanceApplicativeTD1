@@ -1,0 +1,8 @@
+[
+    {
+        "id": "migration-1",
+        "scripts": [ 
+            "CREATE TABLE resultats (champ_selectionne VARCHAR(255), valeur_saisie VARCHAR(255), date DATETIME DEFAULT CURRENT_TIMESTAMP);"
+        ]
+    }
+]
