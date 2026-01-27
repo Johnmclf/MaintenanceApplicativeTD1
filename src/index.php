@@ -1,4 +1,24 @@
 <?php
+// Connexion à la base de données MySQL
+$host = 'db';  // Nom du service dans docker-compose.yml
+$db = 'myapp_db';
+$user = 'user';
+$pass = 'password';
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (PDOException $e) {
+    die("Erreur de connexion : " . $e->getMessage());
+}
+
 $champs = [
     "champ1", "champ2", "champ3", "champ4", "champ5",
     "champ6", "champ7", "champ8", "champ9", "champ10"
@@ -15,6 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["submit"])) {
     // Récupération de la valeur saisie dans ce champ
     if (isset($_GET[$champAleatoire])) {
         $valeur = $_GET[$champAleatoire];
+
+        // Insertion dans la base de données
+        $stmt = $pdo->prepare("INSERT INTO resultats (champ_selectionne, valeur_saisie) VALUES (?, ?)");
+        $stmt->execute([$champAleatoire, $valeur]);
     }
 }
 ?>

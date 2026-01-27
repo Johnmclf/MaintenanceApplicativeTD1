@@ -1,10 +1,11 @@
 FROM php:8.2-apache
 
-# Active mod_rewrite (utile pour les projets PHP)
+# Active mod_rewrite
 RUN a2enmod rewrite
 
-# Copie ton code dans le dossier web d’Apache
-COPY src/ /var/www/html/
+# Installe les extensions MySQL
+RUN docker-php-ext-install pdo pdo_mysql mysqli
 
-# Donne les bons droits
+
+# Droits
 RUN chown -R www-data:www-data /var/www/html
