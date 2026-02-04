@@ -1,10 +1,11 @@
 <?php
 // Connexion à la base de données MySQL
-$host = "localhost:3306"; // Nom du service dans docker-compose.yml
-$db = "maint-applic-td1";
-$user = "root";
-$pass = "";
-$charset = "utf8mb4";
+$isCliServer = (PHP_SAPI === "cli-server");
+$host = getenv("DB_HOST") ?: ($isCliServer ? "127.0.0.1:3306" : "db");
+$db = getenv("DB_NAME") ?: "myapp_db";
+$user = getenv("DB_USER") ?: "root";
+$pass = getenv("DB_PASS") ?: "rootpassword";
+$charset = getenv("DB_CHARSET") ?: "utf8mb4";
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -62,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["submit"])) {
         <li>AHOUANDOGBO Amen</li>
         <li>SCHEER Corentin</li>
         <li>OGER Gabriel</li>
+        <li>CALLERAND Thibault</li>
     </ul>
     <br />
 
