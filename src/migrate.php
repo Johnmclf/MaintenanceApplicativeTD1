@@ -1,9 +1,9 @@
 <?php 
 // Connexion à la base de données MySQL
-$host = 'localhost:3306';  // Nom du service dans docker-compose.yml
+$host = 'db';  // Nom du service dans docker-compose.yml
 $db = 'myapp_db';
 $user = 'root';
-$pass = 'password';
+$pass = 'rootpassword';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
