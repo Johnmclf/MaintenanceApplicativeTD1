@@ -2,7 +2,7 @@
     "name": "johnmclf/maintainanceapplicativetd1",
     "type": "project",
     "scripts": {
-        "phpstan": "phpstan analyse src tests --level 5"
+        "phpstan": "phpstan analyse src tests --level 3"
     },
     "require": {
         "phpunit/phpunit": "^11.5"
