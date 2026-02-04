@@ -64,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["submit"])) {
         <li>SCHEER Corentin</li>
         <li>OGER Gabriel</li>
         <li>CALLERAND Thibault</li>
+        <li>VANDEPOELE Enzo</li>
     </ul>
     <br />
 

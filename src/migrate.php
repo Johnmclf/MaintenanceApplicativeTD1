@@ -1,9 +1,9 @@
 <?php 
 // Connexion à la base de données MySQL
 $host = 'localhost:3306';  // Nom du service dans docker-compose.yml
-$db = 'maint-applic-td1';
+$db = 'myapp_db';
 $user = 'root';
-$pass = '';
+$pass = 'password';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

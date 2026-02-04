@@ -1,18 +1,19 @@
 {
     "name": "johnmclf/maintainanceapplicativetd1",
     "type": "project",
-    "require": {
-        "phpunit/phpunit": "^12.5"
+    "scripts": {
+        "phpstan": "phpstan analyse src tests --level 5"
     },
-    "autoload": {
-        "psr-4": {
-            "Johnmclf\\Maintainanceapplicativetd1\\": "src/"
-        }
+    "require": {
+        "phpunit/phpunit": "^11.5"
     },
     "authors": [
         {
             "name": "Johnmclf",
             "email": "johnmclf@gmail.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^2.1"
+    }
 }
